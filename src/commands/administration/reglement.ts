@@ -66,7 +66,9 @@ export class ReglementCommand extends Command {
 
               Pour accepter le règlement, veuillez interagir avec les boutons ci-dessous !
           `);
-          await interaction.reply({ embeds: [welcomeEmbed], components: [buttons] });
+          await interaction.channel?.send({ embeds: [welcomeEmbed], components: [buttons] });
+
+          interaction.reply({ content: 'Le règlement a bien été généré', ephemeral: true });
   }
 }
 
