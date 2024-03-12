@@ -21,6 +21,7 @@ export class RoleCreateCommand extends Command {
         
         const embed = new EmbedBuilder()
             .setTitle('Choix des roles')
+            // @ts-expect-error
             .setColor(config.EMBED_COLOR)
             .setDescription(`
                 Maintenant que vous avez accepté le <#963041730066804786> choisissez le ou les roles qui vous correspondent

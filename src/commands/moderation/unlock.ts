@@ -48,6 +48,7 @@ export class UnlockCommand extends Command {
       .setTitle(`**UNLOCK**`)
       .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
       .setTimestamp()
+      // @ts-expect-error
       .setColor(config.EMBED_COLOR)
       .setDescription(`Le salon <#${interaction.channelId}> a été déverrouillé
       

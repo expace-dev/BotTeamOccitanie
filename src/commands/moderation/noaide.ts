@@ -25,6 +25,7 @@ export class NoaideCommand extends Command {
         .setDescription(`
             Attention, le salon <#${interaction.channelId}> n'est PAS destiné à poser des questions d'aide, merci de choisir le bon salon !!
             `)
+            // @ts-expect-error
             .setColor(config.EMBED_COLOR)
             .setThumbnail("https://www.team-occitanie.fr/images/discord/interdit.png");
 

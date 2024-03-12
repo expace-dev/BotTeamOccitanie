@@ -90,6 +90,7 @@ export class MuteCommand extends Command {
       .setTitle(`**MUTE** - ${membre.user.username}`)
       .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
       .setTimestamp()
+      // @ts-expect-error
       .setColor(config.EMBED_COLOR)
       .setDescription(`<@${membre.user.id}> a été réduit au silence pour une durée de ${duree}
       

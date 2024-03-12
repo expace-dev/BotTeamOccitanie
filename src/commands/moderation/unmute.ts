@@ -48,6 +48,7 @@ export class UnmuteCommand extends Command {
       .setTitle(`**UNMUTE** - ${membre.user.username}`)
       .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
       .setTimestamp()
+      // @ts-expect-error
       .setColor(config.EMBED_COLOR)
       .setDescription(`<@${membre.user.id}> n'est plus réduit au silence
       

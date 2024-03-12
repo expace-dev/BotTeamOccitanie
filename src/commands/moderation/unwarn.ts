@@ -56,6 +56,7 @@ export class UnwarnCommand extends Command {
       .setTitle(`**UNWARN** - ${membre.user.username}`)
       .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
       .setTimestamp()
+      // @ts-expect-error
       .setColor(config.EMBED_COLOR)
       .setDescription(`Les avertissements de <@${membre.user.id}> ont été supprimé
       

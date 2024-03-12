@@ -40,6 +40,7 @@ export class LockCommand extends Command {
       .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
       .setTimestamp()
       //.setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
+      // @ts-expect-error
       .setColor(config.EMBED_COLOR)
       .setDescription(`Le salon <#${interaction.channelId}> a été verrouyé`);
 
