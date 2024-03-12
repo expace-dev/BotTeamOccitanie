@@ -29,12 +29,11 @@ export default class  extends Event {
         }
     }
 
-    if (message.channel.id === channel?.id) {
+
         if (emojiName === '👨‍🦰') await member?.roles.add(config.ROLE_HOMME);
         if (emojiName === '👩‍🦰') await member?.roles.add(config.ROLE_FEMME);
         if (emojiName === '🚚') await member?.roles.add(config.ROLE_CHAUFFEUR);
         if (emojiName === '🚜') await member?.roles.add(config.ROLE_AGRICULTEUR);
-    }
 
   }
 };
