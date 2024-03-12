@@ -16,7 +16,7 @@ export default class  extends Event {
     const message = messageReaction.message;
     const emojiName = messageReaction.emoji.name;
     const member = message.guild?.members.cache.get(user.id);
-    const channel = message.guild?.channels.cache.get('963094584689303652');
+    //const channel = message.guild?.channels.cache.get('963094584689303652');
 
     if (member?.user.bot) return;
 
