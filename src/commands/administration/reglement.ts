@@ -14,6 +14,7 @@ export class ReglementCommand extends Command {
       category: "administration",
       cooldown: 5,
       userPermissions: [PermissionsBitField.Flags.Administrator],
+      clientPermissions: [PermissionsBitField.Flags.Administrator],
       options: [
         {
           type: ApplicationCommandOptionType.Subcommand,

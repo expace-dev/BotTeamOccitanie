@@ -1,6 +1,6 @@
 import { Command } from "sheweny";
 import type { ShewenyClient } from "sheweny";
-import { CommandInteraction, EmbedBuilder } from "discord.js";
+import { CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export class PingCommand extends Command {
   constructor(client: ShewenyClient) {
@@ -12,7 +12,9 @@ export class PingCommand extends Command {
       type: "SLASH_COMMAND",
       category: "utilitaires",
       cooldown: 5,
-      channel: "GUILD"
+      channel: "GUILD",
+      userPermissions: [PermissionsBitField.Flags.SendMessages],
+      clientPermissions: [PermissionsBitField.Flags.SendMessages]
     });
   }
 

@@ -13,7 +13,8 @@ export class SetvocCommand extends Command {
       type: "SLASH_COMMAND",
       category: "administration",
       cooldown: 5,
-      userPermissions: [PermissionsBitField.Flags.ManageGuild],
+      userPermissions: [PermissionsBitField.Flags.Administrator],
+      clientPermissions: [PermissionsBitField.Flags.Administrator],
       options: [
         {
             type: ApplicationCommandOptionType.Channel,

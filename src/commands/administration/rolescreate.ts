@@ -14,6 +14,7 @@ export class RoleCreateCommand extends Command {
       category: "utilitaires",
       cooldown: 5,
       userPermissions: [PermissionsBitField.Flags.Administrator],
+      clientPermissions: [PermissionsBitField.Flags.Administrator],
     });
   }
 

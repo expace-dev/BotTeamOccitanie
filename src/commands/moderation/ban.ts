@@ -50,7 +50,6 @@ export class BanCommand extends Command {
       .setTitle(`**BANN** - ${membre.user.username}`)
       .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
       .setTimestamp()
-      //.setAuthor({ name: `@${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL() })
       // @ts-expect-error
       .setColor(config.EMBED_COLOR)
       .setDescription(`<@${membre.user.id}> a été bloqué
