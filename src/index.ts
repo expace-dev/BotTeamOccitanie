@@ -1,8 +1,10 @@
 import { ShewenyClient } from "sheweny";
 import config from "./config";
+import { Partials } from "discord.js";
 
 const client = new ShewenyClient({
   intents: ["Guilds", "GuildMessages", "GuildMembers"],
+  partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.User],
   managers: {
     commands: {
       directory: "./commands",
