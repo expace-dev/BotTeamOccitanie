@@ -31,6 +31,7 @@ export default class  extends Event {
 
 
     if (message.channel.id === channel?.id) {
+        console.log(member?.roles);
         if (emojiName === '👨‍🦰') await member?.roles.add(config.ROLE_HOMME);
         if (emojiName === '👩‍🦰') await member?.roles.add(config.ROLE_FEMME);
         if (emojiName === '🚚') await member?.roles.add(config.ROLE_CHAUFFEUR);
