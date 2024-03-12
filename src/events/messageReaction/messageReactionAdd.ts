@@ -18,6 +18,7 @@ export default class  extends Event {
     const member = message.guild?.members.cache.get(user.id);
     const channel = message.guild?.channels.cache.get('963094584689303652');
 
+
     if (member?.user.bot) return;
 
     if (messageReaction.partial) {
@@ -34,8 +35,14 @@ export default class  extends Event {
         console.log(member?.roles.cache);
         if (emojiName === '👨‍🦰') await member?.roles.add(config.ROLE_HOMME);
         if (emojiName === '👩‍🦰') await member?.roles.add(config.ROLE_FEMME);
-        if (emojiName === '🚚') await member?.roles.add(config.ROLE_CHAUFFEUR);
-        if (emojiName === '🚜') await member?.roles.add(config.ROLE_AGRICULTEUR);
+        if (emojiName === '🚚') {
+            await member?.roles.add(config.ROLE_JOUEUR);
+            await member?.roles.add(config.ROLE_CHAUFFEUR);
+        } 
+        if (emojiName === '🚜') {
+            await member?.roles.add(config.ROLE_JOUEUR);
+            await member?.roles.add(config.ROLE_AGRICULTEUR);
+        } 
     }
 
   }
