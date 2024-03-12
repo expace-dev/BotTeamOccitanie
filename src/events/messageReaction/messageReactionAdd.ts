@@ -23,6 +23,7 @@ export default class  extends Event {
     if (messageReaction.partial) {
         try {
             await messageReaction.fetch();
+            console.log('partials')
         } catch (error) {
             console.log('Impossible de récupérer les messages');
             return;
@@ -30,7 +31,7 @@ export default class  extends Event {
     }
 
 
-        if (emojiName === '👨‍🦰') await member?.roles.add(config.ROLE_HOMME);
+        if (emojiName === '👨‍🦰') console.log('je suis un homme');
         if (emojiName === '👩‍🦰') await member?.roles.add(config.ROLE_FEMME);
         if (emojiName === '🚚') await member?.roles.add(config.ROLE_CHAUFFEUR);
         if (emojiName === '🚜') await member?.roles.add(config.ROLE_AGRICULTEUR);
