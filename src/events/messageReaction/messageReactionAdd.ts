@@ -16,14 +16,13 @@ export default class  extends Event {
     const message = messageReaction.message;
     const emojiName = messageReaction.emoji.name;
     const member = message.guild?.members.cache.get(user.id);
-    //const channel = message.guild?.channels.cache.get('963094584689303652');
+    const channel = message.guild?.channels.cache.get('963094584689303652');
 
     if (member?.user.bot) return;
 
     if (messageReaction.partial) {
         try {
             await messageReaction.fetch();
-            console.log('partials')
         } catch (error) {
             console.log('Impossible de récupérer les messages');
             return;
@@ -31,10 +30,12 @@ export default class  extends Event {
     }
 
 
-        if (emojiName === '👨‍🦰') console.log('je suis un homme');
+    if (message.channel.id === channel?.id) {
+        if (emojiName === '👨‍🦰') await member?.roles.add(config.ROLE_HOMME);
         if (emojiName === '👩‍🦰') await member?.roles.add(config.ROLE_FEMME);
         if (emojiName === '🚚') await member?.roles.add(config.ROLE_CHAUFFEUR);
         if (emojiName === '🚜') await member?.roles.add(config.ROLE_AGRICULTEUR);
+    }
 
   }
 };
