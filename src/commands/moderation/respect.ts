@@ -36,7 +36,6 @@ export class RespectCommand extends Command {
         .setDescription(`
         Merci de respecter notre règlement et les membres de la communauté, bonjour et merci sont un minimum !!! 😒
         `)
-        // @ts-expect-error
         .setColor(config.EMBED_COLOR)
         .setThumbnail("https://www.team-occitanie.fr/images/discord/interdit.png");
 

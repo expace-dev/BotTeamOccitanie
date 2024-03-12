@@ -94,7 +94,6 @@ export class WarnCommand extends Command {
 
         const embed = new EmbedBuilder()
             .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
-            // @ts-expect-error
             .setColor(config.EMBED_COLOR)
             .setDescription(`**Membre**: ${membre.user.tag} (${membre.id})
             **Action**: ${action}

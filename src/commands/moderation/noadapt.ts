@@ -37,7 +37,6 @@ export class NoadaptCommand extends Command {
             .setDescription(`
             Cette discussion serait plus adaptée dans le salon ${salon?.channel}
             `)
-            // @ts-expect-error
             .setColor(config.EMBED_COLOR)
             .setThumbnail("https://www.team-occitanie.fr/images/discord/help.png");
 

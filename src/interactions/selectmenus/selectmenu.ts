@@ -172,7 +172,6 @@ const selectAdmin = new ActionRowBuilder<StringSelectMenuBuilder>().addComponent
             [Page Tweeter](https://www.google.fr)
             [Page Linkedin](https://www.google.fr)
             `)
-            // @ts-expect-error
             .setColor(config.EMBED_COLOR);
 
         selectMenu.update({ embeds: [embedHome], components: [selectHome] });
@@ -183,7 +182,6 @@ const selectAdmin = new ActionRowBuilder<StringSelectMenuBuilder>().addComponent
         const embedUtils = new EmbedBuilder()
             .setTitle("Utilitaires - Commandes utiles")
             .setDescription(utilitaires)
-            // @ts-expect-error
             .setColor(config.EMBED_COLOR);
             selectMenu.update({ embeds: [embedUtils], components: [selectUtils] });
         break;
@@ -193,7 +191,6 @@ const selectAdmin = new ActionRowBuilder<StringSelectMenuBuilder>().addComponent
           const embedModo = new EmbedBuilder()
               .setTitle("Utilitaires - Commandes utiles")
               .setDescription(moderation)
-              // @ts-expect-error
               .setColor(config.EMBED_COLOR);
               selectMenu.update({ embeds: [embedModo], components: [selectModo] });
           break;
@@ -203,7 +200,6 @@ const selectAdmin = new ActionRowBuilder<StringSelectMenuBuilder>().addComponent
           const embedAdmin = new EmbedBuilder()
               .setTitle("Utilitaires - Commandes utiles")
               .setDescription(administration)
-              // @ts-expect-error
               .setColor(config.EMBED_COLOR);
               selectMenu.update({ embeds: [embedAdmin], components: [selectAdmin] });
           break;

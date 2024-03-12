@@ -75,7 +75,6 @@ export class HelpCommand extends Command {
             [Les site web de la Team](https://www.team-occitatanie.fr)
             [Le cloud de la Team](https://cloud.team-occitanie.fr)
             `)
-            // @ts-expect-error
             .setColor(config.EMBED_COLOR);
 
         interaction.reply({ embeds: [embed], components: [row], ephemeral:true });
@@ -87,7 +86,6 @@ export class HelpCommand extends Command {
             this.client.collections.commands.forEach((command) => {
               if (command[0].name === cmdName) {
                 const argsEmbed = new EmbedBuilder()
-          // @ts-expect-error
                 .setColor(config.EMBED_COLOR)
                 .setTitle(`Aide de la commande \`${command[0].name}\``)
                 .setDescription(`${command[0].description}

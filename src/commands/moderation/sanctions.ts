@@ -48,7 +48,6 @@ export class SanctionsCommand extends Command {
 
                 const embed = new EmbedBuilder()
                     .setTitle("Sanctions")
-                    // @ts-expect-error
                     .setColor(config.EMBED_COLOR)
                     .setDescription(`l'utilisateur ${membre} a été sanctionné ${nbre} fois pour le(s) raison(s): \n\n${raisons}`)
                     .setFooter({ text: `Demandé par ${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL()}` });

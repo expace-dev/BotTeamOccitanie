@@ -1,6 +1,7 @@
 import { Command } from "sheweny";
 import type { ShewenyClient } from "sheweny";
 import { CommandInteraction, EmbedBuilder, PermissionsBitField } from "discord.js";
+import config from "../../config";
 
 export class RoleCreateCommand extends Command {
   constructor(client: ShewenyClient) {
@@ -20,6 +21,7 @@ export class RoleCreateCommand extends Command {
         
         const embed = new EmbedBuilder()
             .setTitle('Choix des roles')
+            .setColor(config.EMBED_COLOR)
             .setDescription(`
                 Maintenant que vous avez accepté le <#963041730066804786> choisissez le ou les roles qui vous correspondent
 
@@ -34,7 +36,12 @@ export class RoleCreateCommand extends Command {
             .setTimestamp()
             .setFooter({ text: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
 
-            interaction.channel?.send({ embeds: [embed] });
+            interaction.channel?.send({ embeds: [embed] }).then(async msg => {
+              await msg.react('👨‍🦰');
+              await msg.react('👩‍🦰');
+              await msg.react('🚚');
+              await msg.react('🚜');
+            });
 
             interaction.reply({ content: 'Les roles réactions ont bien été activé', ephemeral: true });
 

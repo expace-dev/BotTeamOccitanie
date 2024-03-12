@@ -36,7 +36,6 @@ export class ReglementCommand extends Command {
 
     const welcomeEmbed = new EmbedBuilder()
             .setTitle(`Acceptez le règlement de ${interaction.guild?.name}`)
-            // @ts-expect-error
             .setColor(config.EMBED_COLOR)
             .setDescription(`
               **Accepter ce règlement vous permettras d'accéder à l'intégraité du serveur !!**
