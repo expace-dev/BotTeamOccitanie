@@ -55,26 +55,32 @@ export class ReadyEvent extends Event {
     const port = 3000;
     
 
-    app.get('/article', (req, res) => 
+    app.get('/post-article/query', (req, res) => 
     {
 
       const logChannel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const title  = req.query.title;
+      const url = req.query.url;
+      const username = req.query.username;
+      const avatar = req.query.avatar;
+      const description = req.query.description;
+      const image = req.query.image;
       
       const exampleEmbed = {
         color: 0x82a800,
-        title: 'Synchronisation des mods',
-        url: 'https://www.team-occitanie.fr/publications/synchronisation-des-mods',
+        title: title,
+        url: url,
         author: {
-          name: 'Fredy34560',
-          icon_url: 'https://www.team-occitanie.fr/images/avatars/9f3a23c03735e12e99c21863e2b27d05.jpg',
+          name: username,
+          icon_url: avatar,
         },
-        description: 'Dans cet article nous allons voir comment mettre en place le système de synchronisation. Vous devez au préalable vous être inscris sur le site, avoir activé votre compte et reçu le mail confirmant la création de votre compte Cloud',
+        description: description,
         image: {
-          url: 'https://www.team-occitanie.fr/images/blog/a8142a95577525c52713731984e19bf7.jpg',
+          url: image,
         },
         timestamp: new Date().toISOString(),
       };
-
+      // @ts-expect-error
       logChannel.send({ content: `Bonjour @everyone, **Fredy34560** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
       return res.status(200).send()
     });
