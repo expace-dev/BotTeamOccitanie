@@ -36,11 +36,15 @@ export default class  extends Event {
         if (emojiName === '👨‍🦰') await member?.roles.remove(config.ROLE_HOMME);
         if (emojiName === '👩‍🦰') await member?.roles.remove(config.ROLE_FEMME);
         if (emojiName === '🚚') {
-            console.log(chauffeur);
-            console.log(agriculteur);
+            if (!agriculteur) {
+                await member?.roles.remove(config.ROLE_JOUEUR);
+            }
             await member?.roles.remove(config.ROLE_CHAUFFEUR);
         } 
         if (emojiName === '🚜') {
+            if (!chauffeur) {
+                await member?.roles.remove(config.ROLE_JOUEUR);
+            }
             await member?.roles.remove(config.ROLE_AGRICULTEUR);
         } 
     }
