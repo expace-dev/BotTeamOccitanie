@@ -81,7 +81,7 @@ export class ReadyEvent extends Event {
         timestamp: new Date().toISOString(),
       };
       // @ts-expect-error
-      logChannel.send({ content: `Bonjour @everyone, **Fredy34560** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
+      logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
       return res.status(200).send()
     });
 
