@@ -57,10 +57,9 @@ export class ReadyEvent extends Event {
 
     app.get('/article', (req, res) => 
     {
-      
 
       const logChannel = this.client.channels.cache.get('965896004316585994') as TextChannel;
-
+      
       const exampleEmbed = {
         color: 0x82a800,
         title: 'Synchronisation des mods',
@@ -76,29 +75,12 @@ export class ReadyEvent extends Event {
         timestamp: new Date().toISOString(),
       };
 
-      
-      
-      
       logChannel.send({ content: `Bonjour @everyone, **Fredy34560** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
       return res.status(200).send()
-/*
-    const embed = new EmbedBuilder()
-      .setAuthor({ name: 'Fredy34560', iconURL: 'https://www.team-occitanie.fr/images/avatars/9f3a23c03735e12e99c21863e2b27d05.jpg' })
-      .setTitle(`Synchronisation des mods`)
-      .setURL('https://www.team-occitanie.fr/publications/synchronisation-des-mods')
-      .setImage('https://www.team-occitanie.fr/images/blog/a8142a95577525c52713731984e19bf7.jpg')
-      .setTimestamp()
-      //.setAuthor({ name: `@${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL() })
-      .setColor(config.EMBED_COLOR)
-      .setDescription(`Dans cet article nous allons voir comment mettre en place le système de synchronisation. Vous devez au préalable vous être inscris sur le site, avoir activé votre compte et reçu le mail confirmant la création de votre compte Cloud`);
-      logChannel.send({ embeds: [embed] })
-      return res.status(200).send()
-   
-    */
-    }
-    );
+    });
 
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
 
+    
   }
 };
