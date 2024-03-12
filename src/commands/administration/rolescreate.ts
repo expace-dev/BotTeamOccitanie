@@ -34,7 +34,6 @@ export class RoleCreateCommand extends Command {
                 
                 🚜  Si tu est un agriculteur
             `)
-            .setTimestamp()
 
             interaction.channel?.send({ embeds: [embed] }).then(async msg => {
               await msg.react('👨‍🦰');
