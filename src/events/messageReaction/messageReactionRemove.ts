@@ -16,7 +16,9 @@ export default class  extends Event {
     const message = messageReaction.message;
     const emojiName = messageReaction.emoji.name;
     const member = message.guild?.members.cache.get(user.id);
-    const channel = message.guild?.channels.cache.get('963094584689303652');
+    const channel = message.guild?.channels.cache.get(config.SALON_ROLES);
+    const chauffeur = member?.roles.cache.has(config.ROLE_CHAUFFEUR);
+    const agriculteur = member?.roles.cache.has(config.ROLE_AGRICULTEUR);
 
     if (member?.user.bot) return;
 
@@ -33,8 +35,14 @@ export default class  extends Event {
     if (message.channel.id === channel?.id) {
         if (emojiName === '👨‍🦰') await member?.roles.remove(config.ROLE_HOMME);
         if (emojiName === '👩‍🦰') await member?.roles.remove(config.ROLE_FEMME);
-        if (emojiName === '🚚') await member?.roles.remove(config.ROLE_CHAUFFEUR);
-        if (emojiName === '🚜') await member?.roles.remove(config.ROLE_AGRICULTEUR);
+        if (emojiName === '🚚') {
+            console.log(chauffeur);
+            console.log(agriculteur);
+            await member?.roles.remove(config.ROLE_CHAUFFEUR);
+        } 
+        if (emojiName === '🚜') {
+            await member?.roles.remove(config.ROLE_AGRICULTEUR);
+        } 
     }
 
   }
