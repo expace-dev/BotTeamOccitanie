@@ -58,7 +58,7 @@ export class ReadyEvent extends Event {
     app.get('/article', (req, res) => 
     {
 
-      const logChannel = this.client.channels.cache.get('965896004316585994') as TextChannel;
+      const logChannel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       
       const exampleEmbed = {
         color: 0x82a800,
