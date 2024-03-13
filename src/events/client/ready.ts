@@ -54,15 +54,9 @@ export class ReadyEvent extends Event {
 
     const app = express();
     const port = 3000;
-    /*
-    app.use(cors({
-      origin: 'https://www.team-occitanie.fr'
-    }));
+
+    app.use(cors());
     
-    app.use(cors({
-      origin: 'https://www.team-occitanie.fr'
-    }));  
-*/
     var corsOptions = {
       origin: 'https://www.team-occitanie.fr',
       optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
