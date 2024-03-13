@@ -55,17 +55,19 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-    app.options('*', cors())
-
-    var allowlist = ['http://example1.com', 'http://example2.com']
-    var corsOptionsDelegate = function (req:any, callback:any) {
-      var corsOptions;
-      if (allowlist.indexOf(req.header('Origin')) !== -1) {
-        corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-      } else {
-        corsOptions = { origin: false } // disable CORS for this request
+    if(process.env.NODE_ENV === 'production') {
+      var whitelist = ['http://mywebsite.com', 'https://mywebsite.com']
+      var corsOptions = {
+        // @ts-expect-error
+        origin: function (origin, callback) {
+          if (!origin || whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+          } else {
+            callback(new Error('Not allowed by CORS'))
+          }
+        }
       }
-      callback(null, corsOptions) // callback expects two parameters: error and options
+      app.use(cors(corsOptions));
     }
 
     
@@ -74,7 +76,7 @@ export class ReadyEvent extends Event {
 
 
 
-    app.get('/post-article/query', cors(corsOptionsDelegate), (req, res) => 
+    app.get('/post-article/query', (req, res) => 
     {
 
       
