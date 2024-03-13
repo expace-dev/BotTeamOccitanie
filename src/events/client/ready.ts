@@ -55,11 +55,11 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-      var whitelist = ['http://mywebsite.com', 'https://mywebsite.com']
+      var whitelist = ['https://www.team-occitanie.fr', 'http://127.0.0.1:8000']
       var corsOptions = {
         // @ts-expect-error
         origin: function (origin, callback) {
-          if (origin || whitelist.indexOf(origin) !== -1) {
+          if (!origin || whitelist.indexOf(origin) !== -1) {
             callback(null, true)
           } else {
             callback(new Error('Not allowed by CORS'))
