@@ -80,7 +80,7 @@ export class ReadyEvent extends Event {
       const description = req.query.description;
       const image = req.query.image;
       // @ts-expect-error
-      const newDescription = description.replace('<br />', '\n');
+      const newDescription = description.replaceAll('<br />', '\n');
       
       const exampleEmbed = {
         color: 0x82a800,
