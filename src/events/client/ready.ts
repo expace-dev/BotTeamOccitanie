@@ -59,16 +59,11 @@ export class ReadyEvent extends Event {
       var corsOptions = {
         // @ts-expect-error
         origin: function (origin, callback) {
-          if(origin == undefined) {
-            callback(new Error('Not allowed by CORS'))
-          }
-          else {
             if (origin !== undefined || whitelist.indexOf(origin) !== -1) {
               callback(null, true)
             } else {
               callback(new Error('Not allowed by CORS'))
             }
-          }
           
         }
       }
