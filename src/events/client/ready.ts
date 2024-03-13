@@ -71,7 +71,6 @@ export class ReadyEvent extends Event {
     {
 
       
-      console.log(req.get('origin'));
       const logChannel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       const title  = req.query.title;
       const url = req.query.url;
