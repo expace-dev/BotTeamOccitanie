@@ -85,7 +85,42 @@ export class ReadyEvent extends Event {
       };
       // @ts-expect-error
       logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
-      return res.json().send;
+      return res.status(200).json(
+        {
+          "login": "teste",
+          "id": 91613,
+          "node_id": "MDQ6VXNlcjkxNjEz",
+          "avatar_url": "https://avatars.githubusercontent.com/u/91613?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/teste",
+          "html_url": "https://github.com/teste",
+          "followers_url": "https://api.github.com/users/teste/followers",
+          "following_url": "https://api.github.com/users/teste/following{/other_user}",
+          "gists_url": "https://api.github.com/users/teste/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/teste/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/teste/subscriptions",
+          "organizations_url": "https://api.github.com/users/teste/orgs",
+          "repos_url": "https://api.github.com/users/teste/repos",
+          "events_url": "https://api.github.com/users/teste/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/teste/received_events",
+          "type": "User",
+          "site_admin": false,
+          "name": null,
+          "company": null,
+          "blog": "",
+          "location": "Argentina",
+          "email": null,
+          "hireable": null,
+          "bio": null,
+          "twitter_username": null,
+          "public_repos": 8,
+          "public_gists": 8,
+          "followers": 5,
+          "following": 0,
+          "created_at": "2009-06-03T21:07:43Z",
+          "updated_at": "2017-12-16T23:42:50Z"
+      }
+      );
       //return res.status(200).send()
     });
 
