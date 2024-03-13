@@ -2,7 +2,7 @@ import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
 import {db} from "../../utils/databaseConnect"
 import config from "../../config";
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
 
