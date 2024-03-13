@@ -79,6 +79,8 @@ export class ReadyEvent extends Event {
       const avatar = req.query.avatar;
       const description = req.query.description;
       const image = req.query.image;
+      // @ts-expect-error
+      const newDescription = description.replace('<br />', '\n');
       
       const exampleEmbed = {
         color: 0x82a800,
@@ -88,7 +90,7 @@ export class ReadyEvent extends Event {
           name: username,
           icon_url: avatar,
         },
-        description: description,
+        description: newDescription,
         image: {
           url: image,
         },
