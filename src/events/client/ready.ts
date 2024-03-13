@@ -60,7 +60,7 @@ export class ReadyEvent extends Event {
     }));
     */
     app.use(cors({
-      origin: 'http://127.0.0.1:8000'
+      origin: 'https://www.team-occitanie.fr'
     }));  
 
 
