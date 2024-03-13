@@ -55,7 +55,6 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-    if(process.env.NODE_ENV === 'production') {
       var whitelist = ['http://mywebsite.com', 'https://mywebsite.com']
       var corsOptions = {
         // @ts-expect-error
@@ -68,7 +67,7 @@ export class ReadyEvent extends Event {
         }
       }
       app.use(cors(corsOptions));
-    }
+    
 
     
 
