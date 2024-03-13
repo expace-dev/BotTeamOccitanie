@@ -55,7 +55,9 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
 
-    app.use(cors());
+    app.use(cors({
+      origin: 'https://www-team-occitanie.fr'
+    }));
     
 
     app.get('/post-article/query', (req, res) => 
@@ -86,18 +88,13 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
       
-      setTimeout(fonctionAExecuter, 15000);
-
-      function fonctionAExecuter() {
-        return res.status(200).json(
-          {
-            "statut": "Votre article a bien été partagé sur le Discord de la Team",
-          }
-        );
-      }
+      return res.status(200).json(
+        {
+          "statut": "Votre article a bien été partagé sur Discord",
+        }
+      );
       
       
-      //return res.status(200).send()
     });
 
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
