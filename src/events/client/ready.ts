@@ -55,6 +55,7 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
+    app.options('*', cors())
 
     var allowlist = ['http://example1.com', 'http://example2.com']
     var corsOptionsDelegate = function (req:any, callback:any) {
