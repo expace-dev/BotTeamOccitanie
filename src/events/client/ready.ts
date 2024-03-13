@@ -54,11 +54,15 @@ export class ReadyEvent extends Event {
 
     const app = express();
     const port = 3000;
-
+    /*
     app.use(cors({
-      origin: 'https://www-team-occitanie.fr'
+      origin: 'https://www.team-occitanie.fr'
     }));
-    
+    */
+    app.use(cors({
+      origin: 'http://localhost:8000'
+    }));  
+
 
     app.get('/post-article/query', (req, res) => 
     {
