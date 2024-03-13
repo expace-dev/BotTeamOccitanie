@@ -58,10 +58,15 @@ export class ReadyEvent extends Event {
     app.use(cors({
       origin: 'https://www.team-occitanie.fr'
     }));
-    */
+    
     app.use(cors({
       origin: 'https://www.team-occitanie.fr'
     }));  
+*/
+    var corsOptions = {
+      origin: 'https://www.team-occitanie.fr',
+      optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    }
 
     app.get('/', (req, res) => 
     {
@@ -69,8 +74,10 @@ export class ReadyEvent extends Event {
     });
 
 
-    app.get('/post-article/query', (req, res) => 
+    app.get('/post-article/query', cors(corsOptions), (req, res) => 
     {
+
+      
 
       const logChannel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       const title  = req.query.title;
