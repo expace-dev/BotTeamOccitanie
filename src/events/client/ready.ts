@@ -2,7 +2,7 @@ import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
 import {db} from "../../utils/databaseConnect"
 import config from "../../config";
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
 
@@ -62,7 +62,7 @@ export class ReadyEvent extends Event {
             if (origin !== undefined || whitelist.indexOf(origin) !== -1) {
               callback(null, true)
             } else {
-              callback(new Error('Not allowed by CORS'))
+              callback(new Response('Accès non autorisé'))
             }
           
         }
