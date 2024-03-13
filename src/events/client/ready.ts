@@ -56,7 +56,10 @@ export class ReadyEvent extends Event {
     const port = 3000;
 app.options('*', cors()) // include before other routes
     var corsOptions = {
-      origin: 'https://www.team-occitanie.fr',
+      "origin": "https://www.team-occitanie.fr",
+      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+      "preflightContinue": false,
+      "optionsSuccessStatus": 204
     }
 
     
