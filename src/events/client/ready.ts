@@ -56,17 +56,16 @@ export class ReadyEvent extends Event {
     const port = 3000;
     
 
-    var whitelist = ['http://mywebsite.com', 'https://mywebsite.com'];
-    var corsOptions = {
-      origin: function (origin:any, callback:any) {
-        if (!origin || whitelist.indexOf(origin) !== -1) {
-          callback(null, true)
-        } else {
-          callback(new Error('Not allowed by CORS'))
-        }
+    var allowlist = ['http://example1.com', 'http://example2.com']
+    var corsOptionsDelegate = function (req:any, callback:any) {
+      var corsOptions;
+      if (allowlist.indexOf(req.header('Origin')) !== -1) {
+        corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+      } else {
+        corsOptions = { origin: false } // disable CORS for this request
       }
+      callback(null, corsOptions) // callback expects two parameters: error and options
     }
-    app.use(cors(corsOptions));
 
     
 
@@ -74,7 +73,7 @@ export class ReadyEvent extends Event {
 
 
 
-    app.get('/post-article/query', cors(corsOptions), (req, res) => 
+    app.get('/post-article/query', cors(corsOptionsDelegate), (req, res) => 
     {
 
       
