@@ -86,7 +86,7 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
       
-      setTimeout(fonctionAExecuter, 5000);
+      setTimeout(fonctionAExecuter, 15000);
 
       function fonctionAExecuter() {
 return res.status(200).json(
