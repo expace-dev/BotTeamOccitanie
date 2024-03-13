@@ -55,25 +55,16 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-      var whitelist = ['https://www.team-occitanie.fr', 'http://127.0.0.1:8000']
-      var corsOptions = {
-        // @ts-expect-error
-        origin: function (origin, callback) {
-            if (origin !== undefined || whitelist.indexOf(origin) !== -1) {
-              callback(null, true);
-            } else {
-              callback('Accès non autorisé');
-            }
-          
+    var corsOptions = {
+      origin: function (origin:any, callback:any) {
+        if (origin !== undefined || origin == 'https://www.team-occitanie.fr') {
+          callback(null, true);
+        } else {
+          callback('Accès non autorisé');
         }
       }
-      app.use(cors(corsOptions));
-    
-
-    
-
-    
-
+    }
+    app.use(cors(corsOptions));
 
 
     app.get('/post-article/query', (req, res) => 
