@@ -82,7 +82,7 @@ export class ReadyEvent extends Event {
       };
       // @ts-expect-error
       logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
-      return res.json();
+      return res.json;
       //return res.status(200).send()
     });
 
