@@ -55,11 +55,13 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
 
-    app.use(cors());
-
     var corsOptions = {
       origin: 'https://www.team-occitanie.fr',
     }
+
+    app.options('*', cors(corsOptions)) // include before other routes
+
+    
 
     app.get('/', (req, res) => 
     {
@@ -67,7 +69,7 @@ export class ReadyEvent extends Event {
     });
 
 
-    app.get('/post-article/query', cors(corsOptions), (req, res) => 
+    app.get('/post-article/query', (req, res) => 
     {
 
       
