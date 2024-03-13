@@ -85,7 +85,11 @@ export class ReadyEvent extends Event {
       };
       // @ts-expect-error
       logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
-      return res.status(200).json(
+      
+      setTimeout(fonctionAExecuter, 5000);
+
+      function fonctionAExecuter() {
+return res.status(200).json(
         {
           "login": "teste",
           "id": 91613,
@@ -121,6 +125,9 @@ export class ReadyEvent extends Event {
           "updated_at": "2017-12-16T23:42:50Z"
       }
       );
+      }
+      
+      
       //return res.status(200).send()
     });
 
