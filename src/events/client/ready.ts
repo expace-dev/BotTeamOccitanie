@@ -55,7 +55,7 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     var corsOptions = {
-      origin: '127.0.0.1',
+      origin: 'http://127.0.0.1',
       optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     }
 
