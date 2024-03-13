@@ -62,7 +62,7 @@ export class ReadyEvent extends Event {
             if (origin !== undefined || whitelist.indexOf(origin) !== -1) {
               callback(null, true);
             } else {
-              callback(Error, origin);
+              callback(new Response('Accès non autorise'));
             }
           
         }
