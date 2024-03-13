@@ -54,14 +54,18 @@ export class ReadyEvent extends Event {
 
     const app = express();
     const port = 3000;
-    var whitelist = ['http://example1.com', 'http://example2.com']
+    
+
+    var whitelist = ['http://mywebsite.com', 'https://mywebsite.com'];
     var corsOptions = {
-      // @ts-expect-error
-      origin: function (origin, callback) {
-        var originIsWhitelisted = whitelist.indexOf(origin) !== -1
-        callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
-      }
+      origin: (origin:any, callback:any) => {
+          var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+          console.log('ORIGIN: ', origin);  // => undefined
+          callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
+      },
+      credentials:true
     }
+    app.use(cors(corsOptions));
 
     
 
