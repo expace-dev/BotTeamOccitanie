@@ -69,7 +69,7 @@ export class ReadyEvent extends Event {
     });
 
 
-    app.get('/post-article/query', (req, res) => 
+    app.get('/post-article/query', cors(), (req, res) => 
     {
 
       
