@@ -54,9 +54,10 @@ export class ReadyEvent extends Event {
 
     const app = express();
     const port = 3000;
-    var whitelist = ['http://www.team-occitanie.fr']
+    var whitelist = ['http://example1.com', 'http://example2.com']
     var corsOptions = {
-      origin: function (origin:any, callback:any) {
+      // @ts-expect-error
+      origin: function (origin, callback) {
         var originIsWhitelisted = whitelist.indexOf(origin) !== -1
         callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
       }
