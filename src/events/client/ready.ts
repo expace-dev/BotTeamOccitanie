@@ -54,9 +54,12 @@ export class ReadyEvent extends Event {
 
     const app = express();
     const port = 3000;
+    var whitelist = ['http://www.team-occitanie.fr']
     var corsOptions = {
-      origin: 'localhost',
-      optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+      origin: function (origin:any, callback:any) {
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1
+        callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
+      }
     }
 
     
