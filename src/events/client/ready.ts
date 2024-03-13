@@ -60,9 +60,9 @@ export class ReadyEvent extends Event {
         // @ts-expect-error
         origin: function (origin, callback) {
             if (origin !== undefined || whitelist.indexOf(origin) !== -1) {
-              callback(null, true)
+              callback(null, true);
             } else {
-              callback(new Response('Accès non autorisé'))
+              callback(Error, origin);
             }
           
         }
