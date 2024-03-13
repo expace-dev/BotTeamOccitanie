@@ -59,7 +59,6 @@ export class ReadyEvent extends Event {
 
     var corsOptions = {
       origin: 'https://www.team-occitanie.fr',
-      optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     }
 
     app.get('/', (req, res) => 
@@ -68,7 +67,7 @@ export class ReadyEvent extends Event {
     });
 
 
-    app.put('/post-article/query', cors(corsOptions), (req, res) => 
+    app.get('/post-article/query', cors(corsOptions), (req, res) => 
     {
 
       
