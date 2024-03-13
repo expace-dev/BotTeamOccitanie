@@ -63,6 +63,11 @@ export class ReadyEvent extends Event {
       origin: 'https://www.team-occitanie.fr'
     }));  
 
+    app.get('/', (req, res) => 
+    {
+      return res.send('hello world');
+    });
+
 
     app.get('/post-article/query', (req, res) => 
     {
