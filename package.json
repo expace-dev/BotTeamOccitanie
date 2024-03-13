@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.51",
+    "@types/cors": "^2.8.17",
     "@types/mysql": "^2.15.21",
+    "cors": "^2.8.5",
     "discord.js": "^14.10.2",
     "express": "^4.18.3",
     "ms": "^2.1.3",
