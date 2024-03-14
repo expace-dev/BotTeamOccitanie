@@ -108,6 +108,16 @@ export class ReadyEvent extends Event {
       
     });
 
+    app.get('/post-photo/query', (req, res) => 
+    {
+      return res.status(200).json(
+        {
+          "statut": "Votre article a bien été partagé sur Discord",
+        }
+      );
+
+    });
+
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
 
     
