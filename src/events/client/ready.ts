@@ -118,17 +118,17 @@ export class ReadyEvent extends Event {
 
       const embed = {
         color: 0x82a800,
-        author: {
-          name: username,
-          icon_url: avatar,
-        },
         image: {
           url: image,
+        },
+        footer: {
+          text: username,
+          icon_url: avatar,
         },
         timestamp: new Date().toISOString(),
       };
       // @ts-expect-error
-      channel.send({ content: `**${username}** a posté une nouvelle photo`, embeds: [embed] })
+      channel.send({ embeds: [embed] })
       return res.status(200).json(
         {
           "statut": "Votre article a bien été partagé sur Discord",
