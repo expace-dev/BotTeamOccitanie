@@ -149,6 +149,12 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       channel.messages.delete(messageId)
 
+      return res.status(200).json(
+        {
+          "status": "photo supprimé"
+        }
+      );
+
       
       
 
