@@ -3,7 +3,7 @@ import type { ShewenyClient } from "sheweny";
 import {db} from "../../utils/databaseConnect"
 import config from "../../config";
 import express from "express";
-//import cors from "cors";
+import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
 
 export class ReadyEvent extends Event {
@@ -54,7 +54,7 @@ export class ReadyEvent extends Event {
 
     const app = express();
     const port = 3000;
- /*   
+    
     var corsOptions = {
       origin: function (origin:any, callback:any) {
         if (origin !== undefined || origin == 'https://www.team-occitanie.fr') {
@@ -64,10 +64,11 @@ export class ReadyEvent extends Event {
         }
       }
     }
+/*    
     app.use(cors(corsOptions));
 */
 
-    app.get('/post-article/query', (req, res) => 
+    app.get('/post-article/query', cors(corsOptions), (req, res) => 
     {
 
       
