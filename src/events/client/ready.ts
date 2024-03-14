@@ -51,7 +51,7 @@ export class ReadyEvent extends Event {
     });
 
     console.log(`${this.client.user!.tag} is logged in`);
-
+/*
     const app = express();
     const port = 3000;
     
@@ -65,7 +65,7 @@ export class ReadyEvent extends Event {
       }
     }
     app.use(cors(corsOptions));
-
+*/
 
     app.get('/post-article/query', (req, res) => 
     {
