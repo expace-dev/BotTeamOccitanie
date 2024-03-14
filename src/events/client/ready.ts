@@ -140,6 +140,20 @@ export class ReadyEvent extends Event {
 
     });
 
+    app.get('/remove-photo/query', (req, res) => 
+    {
+
+      const messageId = req.query.id;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+
+      // @ts-expect-error
+      channel.messages.delete(messageId)
+
+      
+      
+
+    });
+
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
 
     
