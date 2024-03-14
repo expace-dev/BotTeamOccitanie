@@ -128,8 +128,10 @@ export class ReadyEvent extends Event {
         timestamp: new Date().toISOString(),
       };
       // @ts-expect-error
-      let message = await channel.send({ embeds: [embed] });
-      console.log(message.id);
+      channel.send({ embeds: [embed] }).then(message => {
+        console.log(message.id);
+      });
+      
       return res.status(200).json(
         {
           "statut": "Votre photo a bien été partagé sur Discord",
