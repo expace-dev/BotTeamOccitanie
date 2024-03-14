@@ -51,10 +51,10 @@ export class ReadyEvent extends Event {
     });
 
     console.log(`${this.client.user!.tag} is logged in`);
-/*
+
     const app = express();
     const port = 3000;
-    
+ /*   
     var corsOptions = {
       origin: function (origin:any, callback:any) {
         if (origin !== undefined || origin == 'https://www.team-occitanie.fr') {
