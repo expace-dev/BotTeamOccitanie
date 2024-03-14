@@ -82,7 +82,7 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       const newDescription = description.replaceAll('<br />', '\n');
       
-      const exampleEmbed = {
+      const embed = {
         color: 0x82a800,
         title: title,
         url: url,
@@ -97,7 +97,7 @@ export class ReadyEvent extends Event {
         timestamp: new Date().toISOString(),
       };
       // @ts-expect-error
-      logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [exampleEmbed] })
+      logChannel.send({ content: `Bonjour @everyone, **${username}** a posté un nouvel article! Allez y jeter un oeil!`, embeds: [embed] })
       
       return res.status(200).json(
         {
@@ -110,6 +110,25 @@ export class ReadyEvent extends Event {
 
     app.get('/post-photo/query', (req, res) => 
     {
+
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const username = req.query.username;
+      const avatar = req.query.avatar;
+      const image = req.query.image;
+
+      const embed = {
+        color: 0x82a800,
+        author: {
+          name: username,
+          icon_url: avatar,
+        },
+        image: {
+          url: image,
+        },
+        timestamp: new Date().toISOString(),
+      };
+      // @ts-expect-error
+      channel.send({ content: `Bonjour @everyone, **${username}** a posté une nouvelle photo`, embeds: [embed] })
       return res.status(200).json(
         {
           "statut": "Votre article a bien été partagé sur Discord",
