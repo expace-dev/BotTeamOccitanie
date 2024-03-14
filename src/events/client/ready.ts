@@ -129,14 +129,15 @@ export class ReadyEvent extends Event {
       };
       // @ts-expect-error
       channel.send({ embeds: [embed] }).then(message => {
-        console.log(message.id);
+        return res.status(200).json(
+          {
+            "statut": "Votre photo a bien été partagé sur Discord",
+            "messageId": message.id
+          }
+        );
       });
       
-      return res.status(200).json(
-        {
-          "statut": "Votre photo a bien été partagé sur Discord",
-        }
-      );
+      
 
     });
 
