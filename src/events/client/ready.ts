@@ -131,7 +131,6 @@ export class ReadyEvent extends Event {
       channel.send({ embeds: [embed] }).then(message => {
         return res.status(200).json(
           {
-            "statut": "Votre photo a bien été partagé sur Discord",
             "messageId": message.id
           }
         );
