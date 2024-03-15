@@ -3,7 +3,7 @@ import config from "./config";
 import { Partials } from "discord.js";
 
 const client = new ShewenyClient({
-  intents: ["Guilds", "GuildMessages", "GuildMembers", "GuildMessageReactions"],
+  intents: 70368744177655,
   partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.User],
   managers: {
     commands: {
