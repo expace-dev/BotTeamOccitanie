@@ -62,11 +62,11 @@ export class ReadyEvent extends Event {
 
       console.log(req.ip);
 
-      if (remoteAdress != '127.0.0.1' || remoteAdress != '::ffff:127.0.0.1' || remoteAdress != '::1') {
-        req.status(403).send('Forbidden');
+      if (remoteAdress == '::ffff:127.0.0.1') {
+        next();
       }
       else {
-        next();
+        req.status(403).send('Forbidden');
       }
     };
 
