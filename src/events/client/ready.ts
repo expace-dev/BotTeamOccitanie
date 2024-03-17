@@ -73,8 +73,7 @@ export class ReadyEvent extends Event {
           var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
           console.log('ORIGIN: ', origin);  // => undefined
           callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
-      },
-      credentials:true
+      }
     }
     app.use(cors(corsOptions));
 
