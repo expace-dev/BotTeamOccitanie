@@ -69,7 +69,8 @@ export class ReadyEvent extends Event {
     }
     */
     var corsOptions = {
-      origin: function (origin:any, callback:any) {
+      // @ts-expect-error
+      origin: function (origin, callback) {
         if (!origin || whitelist.indexOf(origin) !== -1) {
           console.log(origin);
           callback(null, true)
