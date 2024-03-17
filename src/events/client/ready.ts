@@ -62,7 +62,7 @@ export class ReadyEvent extends Event {
           console.log(origin)
           callback(null, true)
         } else {
-            //callback(new Error('Not allowed by CORS'))
+            callback(new Error('Not allowed by CORS'))
           }
           
       }
