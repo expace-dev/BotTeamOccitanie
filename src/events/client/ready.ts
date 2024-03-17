@@ -155,9 +155,43 @@ export class ReadyEvent extends Event {
         }
       );
 
-      
-      
 
+    });
+
+    app.get('/add-tache/query', (req, res) => 
+    {
+
+      //const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      
+      const userId = req.query.userId;
+      // @ts-expect-error
+      const member = guild.members.cache.get(userId);
+
+      console.log(member);
+      
+/*
+
+      const embed = {
+        color: 0x82a800,
+        title: 'Tache a effectuer sur Castelnaud',
+        description: 'Il faudrais labourer le champs 25',
+        thumbnail: {
+          url: 'https://www.team-occitanie.fr/images/discord/help.png',
+        },
+        footer: {
+          text: username,
+          icon_url: avatar,
+        },
+        timestamp: new Date().toISOString(),
+      };
+      channel.send({ embeds: [embed] }).then(message => {
+        return res.status(200).json(
+          {
+            "messageId": message.id
+          }
+        );
+      });
+*/
     });
 
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
