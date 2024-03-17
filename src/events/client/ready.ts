@@ -55,7 +55,9 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
+    var whitelist = ['http://127.0.0.1:8000']
     
+    /*
     var corsOptions = {
       origin: function (origin:any, callback:any) {
         if (origin != undefined || origin == 'http://127.0.0.1:8000') {
@@ -64,6 +66,15 @@ export class ReadyEvent extends Event {
           callback('Accès non autorisé');
         }
       }
+    }
+    */
+    var corsOptions = {
+      origin: (origin:any, callback:any) => {
+          var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+          console.log('ORIGIN: ', origin);  // => undefined
+          callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
+      },
+      credentials:true
     }
     app.use(cors(corsOptions));
 
