@@ -63,6 +63,9 @@ export class ReadyEvent extends Event {
       if (remoteAdress != '127.0.0.1' || remoteAdress != '::ffff:127.0.0.1' || remoteAdress != '::1') {
         req.status(403).send('Forbidden');
       }
+      else {
+        next();
+      }
     };
 
     app.use(allowLocalhostOnly);
