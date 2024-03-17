@@ -76,11 +76,9 @@ export class ReadyEvent extends Event {
    
     var corsOptions = {
       origin: function (origin:any, callback:any) {
-        if (origin != undefined || origin == 'http://127.0.0.1') {
-          callback(null, true);
-        } else {
-          callback('Accès non autorisé');
-        }
+
+        console.log(origin);
+        
       }
     }
     app.use(cors(corsOptions))
