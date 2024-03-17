@@ -218,7 +218,7 @@ export class ReadyEvent extends Event {
         image: {
           url: req.query.image,
         },
-        description: `Rejoignez fredy34560 sur TruckerMp le <t:1618953630:d>`,
+        description: `Rejoignez fredy34560 sur TruckerMp le <t:1618953630:F>`,
         footer: {
           text: req.query.username,
           icon_url: req.query.avatar,
