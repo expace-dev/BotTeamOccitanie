@@ -68,7 +68,7 @@ export class ReadyEvent extends Event {
           }
           
         } else {
-            callback(new Error('Not allowed by CORS'))
+            //callback(new Error('Not allowed by CORS'))
           }
           
       }
