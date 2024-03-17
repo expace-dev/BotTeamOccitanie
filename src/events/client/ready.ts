@@ -60,7 +60,7 @@ export class ReadyEvent extends Event {
     const allowLocalhostOnly = (req:any, res:any, next:any) => {
       const remoteAdress = req.ip;
 
-      if (remoteAdress === '31.207.35.38' || remoteAdress === '::ffff:31.207.35.38' || remoteAdress === ' fe80::ff:fe10:1293') {
+      if (remoteAdress === '127.0.0.1' || remoteAdress === '::ffff:127.0.0.1' || remoteAdress === '::1') {
         next();
       }
       else {
