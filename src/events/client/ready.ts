@@ -61,7 +61,7 @@ export class ReadyEvent extends Event {
       const remoteAdress = req.ip;
 
       if (remoteAdress === '127.0.0.1' || remoteAdress === '::ffff:127.0.0.1' || remoteAdress === '::1') {
-        next();
+        
       }
       else {
         req.status(403).send('Forbidden');
