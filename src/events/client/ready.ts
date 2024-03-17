@@ -74,18 +74,19 @@ export class ReadyEvent extends Event {
    //var whitelist = ['http://127.0.0.1']
     
    
-    var corsOptions = {
-      origin: function (origin:any, callback:any) {
-
-        console.log(origin);
-        if (origin != undefined || origin == 'http://127.0.0.1') {
-          callback(null, true);
-        } else {
-          callback('Accès non autorisé');
-        }
-      }
-    }
-    app.use(cors(corsOptions))
+   var allowedOrigins = ['http://localhost:3000',
+                      'http://yourapp.com'];
+  
+  app.use(cors({
+  origin: function(origin, callback){    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }    return callback(null, true);
+  }
+}));
 
 
     app.get('/post-article/query', (req, res) => 
