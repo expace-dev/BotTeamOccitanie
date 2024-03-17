@@ -57,7 +57,7 @@ export class ReadyEvent extends Event {
     
     var corsOptions = {
       origin: function (origin:any, callback:any) {
-        if (origin !== undefined || origin == 'https://www.team-occitanie.fr') {
+        if (origin !== undefined && origin == 'https://www.team-occitanie.fr') {
           callback(null, true);
         } else {
           callback('Accès non autorisé');
@@ -161,7 +161,7 @@ export class ReadyEvent extends Event {
     app.get('/add-tache/query', (req, res) => 
     {
 
-      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get(config.SALON_TACHES) as TextChannel;
       
 
       const embed = {
@@ -192,7 +192,7 @@ export class ReadyEvent extends Event {
     {
 
       const messageId = req.query.id;
-      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get(config.SALON_TACHES) as TextChannel;
 
       // @ts-expect-error
       channel.messages.delete(messageId)
@@ -209,7 +209,7 @@ export class ReadyEvent extends Event {
     app.get('/add-evenement/query', (req, res) => 
     {
 
-      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get(config.SALON_EVENEMENTS) as TextChannel;
       
 
       const embed = {
@@ -240,7 +240,7 @@ export class ReadyEvent extends Event {
     {
 
       const messageId = req.query.id;
-      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get(config.SALON_EVENEMENTS) as TextChannel;
 
       // @ts-expect-error
       channel.messages.delete(messageId)
