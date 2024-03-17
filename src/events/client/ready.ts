@@ -188,7 +188,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/remove-tache/query', cors(corsOptions), (req, res) => 
+    app.get('/remove-tache/query', (req, res) => 
     {
 
       const messageId = req.query.id;
