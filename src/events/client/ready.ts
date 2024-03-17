@@ -64,7 +64,6 @@ export class ReadyEvent extends Event {
         }
       }
     }
-    
     app.use(cors(corsOptions));
 
 
