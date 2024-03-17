@@ -72,10 +72,12 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       origin: function (origin, callback) {
         if (!origin || whitelist.indexOf(origin) !== -1) {
-          console.log(origin);
           callback(null, true)
         } else {
-          callback(new Error('Not allowed by CORS'))
+          if (origin == undefined) {
+            callback(new Error('Not allowed by CORS'))
+          }
+          
         }
       }
     }
@@ -124,7 +126,7 @@ export class ReadyEvent extends Event {
 
     app.get('/post-photo/query', (req, res) => 
     {
-
+      
       const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
       const username = req.query.username;
       const avatar = req.query.avatar;
