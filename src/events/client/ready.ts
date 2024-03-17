@@ -73,7 +73,19 @@ export class ReadyEvent extends Event {
    */ 
    //var whitelist = ['http://127.0.0.1']
     
-   app.use(cors());
+   
+    var corsOptions = {
+      origin: function (origin:any, callback:any) {
+
+        console.log(origin);
+        if (origin != undefined || origin == 'http://127.0.0.1') {
+          callback(null, true);
+        } else {
+          callback('Accès non autorisé');
+        }
+      }
+    }
+    app.use(cors(corsOptions))
 
 
     app.get('/post-article/query', (req, res) => 
