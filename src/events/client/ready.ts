@@ -206,6 +206,54 @@ export class ReadyEvent extends Event {
 
     });
 
+    app.get('/add-evenement/query', (req, res) => 
+    {
+
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      
+
+      const embed = {
+        color: 0x82a800,
+        title: `<#335402779092975618> propose un évènement`,
+        image: {
+          url: req.query.image,
+        },
+        description: req.query.description,
+        footer: {
+          text: req.query.username,
+          icon_url: req.query.avatar,
+        },
+        timestamp: new Date().toISOString(),
+      };
+      // @ts-expect-error
+      channel.send({ embeds: [embed] }).then(message => {
+        return res.status(200).json(
+          {
+            "messageId": message.id
+          }
+        );
+      });
+
+    });
+
+    app.get('/remove-tache/query', (req, res) => 
+    {
+
+      const messageId = req.query.id;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+
+      // @ts-expect-error
+      channel.messages.delete(messageId)
+
+      return res.status(200).json(
+        {
+          "status": "tache supprimé"
+        }
+      );
+
+
+    });
+
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
 
     
