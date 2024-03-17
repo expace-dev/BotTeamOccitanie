@@ -161,7 +161,7 @@ export class ReadyEvent extends Event {
     app.get('/add-tache/query', (req, res) => 
     {
 
-      //const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       
       const userId = req.query.userId;
       // @ts-expect-error
@@ -169,7 +169,7 @@ export class ReadyEvent extends Event {
 
       console.log(userId);
       
-/*
+
 
       const embed = {
         color: 0x82a800,
@@ -179,8 +179,8 @@ export class ReadyEvent extends Event {
           url: 'https://www.team-occitanie.fr/images/discord/help.png',
         },
         footer: {
-          text: username,
-          icon_url: avatar,
+          text: 'alf233',
+          icon_url: 'https://cdn.discordapp.com/avatars/335402779092975618/816d4065d992d32175d938b88ca3822d.png',
         },
         timestamp: new Date().toISOString(),
       };
@@ -191,7 +191,7 @@ export class ReadyEvent extends Event {
           }
         );
       });
-*/
+
     });
 
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
