@@ -55,19 +55,20 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-    var whitelist = ['https://www.team-occitanie.fr', 'https://team-occitanie.fr']
     var corsOptions = {
-      origin: (origin:any, callback:any) => {
-          var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-          console.log('ORIGIN: ', origin);  // => undefined
-          callback(originIsWhitelisted ? undefined : 'Bad Request', originIsWhitelisted)
+      origin: function (origin:any, callback:any) {
+        if (origin !== undefined && origin == 'https://www.team-occitanie.fr') {
+          callback(null, true);
+        } else {
+          callback('Accès non autorisé');
+        }
       }
     }
-    
+/*    
     app.use(cors(corsOptions));
+*/
 
-
-    app.get('/post-article/query', (req, res) => 
+    app.get('/post-article/query', cors(corsOptions), (req, res) => 
     {
 
       
@@ -139,7 +140,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/remove-photo/query', (req, res) => 
+    app.get('/remove-photo/query', cors(corsOptions), (req, res) => 
     {
 
       const messageId = req.query.id;
