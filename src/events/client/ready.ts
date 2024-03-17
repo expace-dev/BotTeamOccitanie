@@ -167,7 +167,7 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       const member = guild.members.cache.get(userId);
 
-      console.log(member);
+      console.log(userId);
       
 /*
 
