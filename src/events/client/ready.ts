@@ -3,7 +3,7 @@ import type { ShewenyClient } from "sheweny";
 import {db} from "../../utils/databaseConnect"
 import config from "../../config";
 import express from "express";
-//import cors from "cors";
+import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
 
 export class ReadyEvent extends Event {
@@ -55,10 +55,10 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-    /*
+    
     var corsOptions = {
       origin: function (origin:any, callback:any) {
-        if (origin !== undefined || origin == 'https://www.team-occitanie.fr') {
+        if (origin !== undefined || origin == 'https://127.0.0.1:8000') {
           callback(null, true);
         } else {
           callback('Accès non autorisé');
@@ -66,7 +66,7 @@ export class ReadyEvent extends Event {
       }
     }
     app.use(cors(corsOptions));
-*/
+
 
     app.get('/post-article/query', (req, res) => 
     {
@@ -110,7 +110,6 @@ export class ReadyEvent extends Event {
 
     app.get('/post-photo/query', (req, res) => 
     {
-      console.log(req)
 
       const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
       const username = req.query.username;
