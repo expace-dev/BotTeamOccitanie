@@ -214,7 +214,7 @@ export class ReadyEvent extends Event {
 
       const embed = {
         color: 0x82a800,
-        title: `<#335402779092975618> propose un évènement`,
+        title: `<@335402779092975618> propose un évènement`,
         image: {
           url: req.query.image,
         },
