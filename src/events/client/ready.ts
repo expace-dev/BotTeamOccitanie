@@ -60,10 +60,7 @@ export class ReadyEvent extends Event {
     const allowLocalhostOnly = (req:any, res:any, next:any) => {
       const remoteAdress = req.ip;
 
-      if (remoteAdress === '127.0.0.1' || remoteAdress === '::ffff:127.0.0.1' || remoteAdress === '::1') {
-        
-      }
-      else {
+      if (remoteAdress != '127.0.0.1' || remoteAdress != '::ffff:127.0.0.1' || remoteAdress != '::1') {
         req.status(403).send('Forbidden');
       }
     };
