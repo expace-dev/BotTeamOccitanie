@@ -188,6 +188,24 @@ export class ReadyEvent extends Event {
 
     });
 
+    app.get('/remove-tache/query', cors(corsOptions), (req, res) => 
+    {
+
+      const messageId = req.query.id;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+
+      // @ts-expect-error
+      channel.messages.delete(messageId)
+
+      return res.status(200).json(
+        {
+          "status": "tache supprimé"
+        }
+      );
+
+
+    });
+
     app.listen(port, () => console.log(`Example app listening on port ${port}! http://localhost:${port}/`));
 
     
