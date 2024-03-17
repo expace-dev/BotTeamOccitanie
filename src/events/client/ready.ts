@@ -73,7 +73,7 @@ export class ReadyEvent extends Event {
    */ 
    //var whitelist = ['http://127.0.0.1']
     
-   
+   app.use(cors());
     var corsOptions = {
       // @ts-expect-error
       origin: function (origin, callback) {
