@@ -81,7 +81,7 @@ export class ReadyEvent extends Event {
         
       }
     }
-    app.use(cors(corsOptions))
+    app.use(cors(corsOptions));
 
 
     app.get('/post-article/query', (req, res) => 
