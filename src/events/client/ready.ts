@@ -163,25 +163,21 @@ export class ReadyEvent extends Event {
 
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       
-      const username = req.query.userId;
-      
-      console.log(username);
-      
-
 
       const embed = {
         color: 0x82a800,
-        title: 'Tache a effectuer sur Castelnaud',
-        description: 'Il faudrais labourer le champs 25',
+        title: `Tache a effectuer sur ${req.query.map}`,
+        description: req.query.description,
         thumbnail: {
           url: 'https://www.team-occitanie.fr/images/discord/help.png',
         },
         footer: {
-          text: 'alf233',
-          icon_url: 'https://cdn.discordapp.com/avatars/335402779092975618/816d4065d992d32175d938b88ca3822d.png',
+          text: req.query.username,
+          icon_url: req.query.avatar,
         },
         timestamp: new Date().toISOString(),
       };
+      // @ts-expect-error
       channel.send({ embeds: [embed] }).then(message => {
         return res.status(200).json(
           {
