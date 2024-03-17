@@ -58,13 +58,8 @@ export class ReadyEvent extends Event {
     var whitelist = ['https://www.team-occitanie.fr', 'http://www.team-occitanie.fr']
     var corsOptions = {
       origin: function (origin:any, callback:any) {
-        if (!origin || whitelist.indexOf(origin) !== -1) {
-          console.log(origin)
-          callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-          }
-          
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1
+        callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
       }
     }
     
