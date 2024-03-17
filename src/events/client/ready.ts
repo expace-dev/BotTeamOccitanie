@@ -69,10 +69,12 @@ export class ReadyEvent extends Event {
     }
     */
     var corsOptions = {
-      origin: (origin:any, callback:any) => {
-          var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-          console.log('ORIGIN: ', origin);  // => undefined
-          callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
+      origin: function (origin:any, callback:any) {
+        if (!origin || whitelist.indexOf(origin) !== -1) {
+          callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
       }
     }
     app.use(cors(corsOptions));
