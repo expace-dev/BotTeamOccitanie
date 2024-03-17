@@ -68,7 +68,7 @@ export class ReadyEvent extends Event {
       }
     }
     
-    app.use(cors(corsOptions));
+    //app.use(cors(corsOptions));
 
 
     app.get('/post-article/query', cors(corsOptions), (req, res) => 
@@ -111,7 +111,7 @@ export class ReadyEvent extends Event {
       
     });
 
-    app.get('/post-photo/query', (req, res) => 
+    app.get('/post-photo/query', cors(corsOptions), (req, res) => 
     {
 
       const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
