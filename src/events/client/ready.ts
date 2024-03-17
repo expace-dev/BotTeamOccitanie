@@ -75,7 +75,8 @@ export class ReadyEvent extends Event {
     
    
     var corsOptions = {
-      origin: function (origin:any, callback:any) {
+      // @ts-expect-error
+      origin: function (origin, callback) {
 
         console.log(origin);
         
