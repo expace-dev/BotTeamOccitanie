@@ -214,11 +214,11 @@ export class ReadyEvent extends Event {
 
       const embed = {
         color: 0x82a800,
-        title: `<@335402779092975618> propose un évènement`,
+        title: `Nouvel évènement programmé`,
         image: {
           url: req.query.image,
         },
-        description: req.query.description,
+        description: 'Rejoignez fredy34560 sur TruckerMp le <F:1618953630:d>',
         footer: {
           text: req.query.username,
           icon_url: req.query.avatar,
