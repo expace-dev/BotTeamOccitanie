@@ -4,7 +4,7 @@ import {db} from "../../utils/databaseConnect"
 import config from "../../config";
 import express from "express";
 import cors from "cors";
-import { Guild, TextChannel } from "discord.js";
+import { Guild, GuildMember, TextChannel } from "discord.js";
 
 export class ReadyEvent extends Event {
   constructor(client: ShewenyClient) {
@@ -163,11 +163,9 @@ export class ReadyEvent extends Event {
 
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       
-      const userId = req.query.userId;
-      // @ts-expect-error
-      const member = guild.members.cache.get(userId);
-
-      console.log(userId);
+      const username = req.query.userId;
+      
+      console.log(username);
       
 
 
