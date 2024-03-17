@@ -236,7 +236,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/remove-tache/query', (req, res) => 
+    app.get('/remove-evenement/query', (req, res) => 
     {
 
       const messageId = req.query.id;
