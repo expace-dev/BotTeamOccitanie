@@ -59,6 +59,7 @@ export class ReadyEvent extends Event {
     var corsOptions = {
       origin: function (origin:any, callback:any) {
         var originIsWhitelisted = whitelist.indexOf(origin) !== -1
+        console.log(origin)
         callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
       }
     }
