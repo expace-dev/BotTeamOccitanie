@@ -74,8 +74,7 @@ export class ReadyEvent extends Event {
    //var whitelist = ['http://127.0.0.1']
     
    
-   var allowedOrigins = ['http://localhost:3000',
-                      'http://yourapp.com'];
+   var allowedOrigins = ['http://yourapp.com'];
   
   app.use(cors({
   origin: function(origin, callback){    // allow requests with no origin 
