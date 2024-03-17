@@ -55,7 +55,7 @@ export class ReadyEvent extends Event {
     const app = express();
     const port = 3000;
     
-    var whitelist = ['http://127.0.0.1:8000']
+    var whitelist = ['http://localhost:8000']
     
     /*
     var corsOptions = {
