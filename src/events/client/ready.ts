@@ -56,13 +56,16 @@ export class ReadyEvent extends Event {
     const port = 3000;
     
     var whitelist = ['https://www.team-occitanie.fr', 'http://www.team-occitanie.fr']
+    var whitelist = ['http://mywebsite.com', 'https://mywebsite.com']
     var corsOptions = {
-      origin: function (origin:any, callback:any) {
-        var originIsWhitelisted = whitelist.indexOf(origin) !== -1
-        console.log(origin)
-        callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
-      }
+      origin: (origin:any, callback:any) => {
+          var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+          console.log('ORIGIN: ', origin);  // => undefined
+          callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted)
+      },
+      credentials:true
     }
+    app.use(cors(corsOptions));
     
     app.use(cors(corsOptions));
 
