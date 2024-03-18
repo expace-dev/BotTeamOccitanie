@@ -72,7 +72,7 @@ export class ReadyEvent extends Event {
     {
 
       
-      const logChannel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const logChannel = this.client.channels.cache.get(config.SALON_ACTUALITE) as TextChannel;
       const title  = req.query.title;
       const url = req.query.url;
       const username = req.query.username;
@@ -82,7 +82,6 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       const newDescription = description.replaceAll('<br />', '\n');
       
-      console.log(url);
       const embed = {
         color: 0x82a800,
         title: title,
@@ -112,7 +111,7 @@ export class ReadyEvent extends Event {
     app.get('/post-photo/query', cors(corsOptions), (req, res) => 
     {
       
-      const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       const username = req.query.username;
       const avatar = req.query.avatar;
       const image = req.query.image;
@@ -145,7 +144,7 @@ export class ReadyEvent extends Event {
     {
 
       const messageId = req.query.id;
-      const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
       // @ts-expect-error
       channel.messages.delete(messageId)
