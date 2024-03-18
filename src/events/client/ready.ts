@@ -206,6 +206,38 @@ export class ReadyEvent extends Event {
 
     });
 
+    app.get('/edit-tache/query', cors(corsOptions), (req, res) => 
+    {
+
+      const messageId = req.query.id;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+
+      const embed = {
+        color: 0x82a800,
+        title: `Tache a effectuer sur ${req.query.map}`,
+        description: req.query.description,
+        thumbnail: {
+          url: 'https://www.team-occitanie.fr/images/discord/help.png',
+        },
+        footer: {
+          text: req.query.username,
+          icon_url: req.query.avatar,
+        },
+        timestamp: new Date().toISOString(),
+      };
+
+      // @ts-expect-error
+      channel.messages.edit(messageId, { embeds: [embed] })
+
+      return res.status(200).json(
+        {
+          "status": "tache modifié"
+        }
+      );
+
+
+    });
+
     app.get('/add-evenement/query', cors(corsOptions), (req, res) => 
     {
 
