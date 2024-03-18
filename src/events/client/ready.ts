@@ -76,11 +76,9 @@ export class ReadyEvent extends Event {
    
    //ar allowedOrigins = ['http://yourapp.com'];
   
-  app.use(cors({
-  origin: function(origin, callback){    // allow requests with no origin 
-    console.log(origin);
-  }
-}));
+   app.use(cors({
+    origin: 'http://yourapp.com'
+  }));
 
 
     app.get('/post-article/query', (req, res) => 
