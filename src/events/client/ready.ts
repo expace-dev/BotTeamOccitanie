@@ -270,6 +270,40 @@ export class ReadyEvent extends Event {
 
     });
 
+    app.get('/edit-evenement/query', cors(corsOptions), (req, res) => 
+    {
+
+      const messageId = req.query.id as MessageResolvable;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+
+      
+
+      const embed = {
+        color: 0x82a800,
+        title: `Evenement du <t:${req.query.date}:F>`,
+        image: {
+          url: req.query.image,
+        },
+        description: req.query.description,
+        footer: {
+          text: req.query.username,
+          icon_url: req.query.avatar,
+        },
+        timestamp: new Date().toISOString(),
+      };
+      // @ts-expect-error
+      channel.messages.fetch(messageId).then(msg => msg.edit({ embeds: [embed] }))
+      //console.log(message);
+
+      return res.status(200).json(
+        {
+          "status": "evenement modifié"
+        }
+      );
+
+
+    });
+
     app.get('/remove-evenement/query', cors(corsOptions), (req, res) => 
     {
 
