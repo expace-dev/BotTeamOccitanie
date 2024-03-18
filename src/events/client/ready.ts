@@ -3,7 +3,7 @@ import type { ShewenyClient } from "sheweny";
 import {db} from "../../utils/databaseConnect"
 import config from "../../config";
 import express from "express";
-//import cors from "cors";
+import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
 import bodyParser from "body-parser";
 
@@ -69,10 +69,20 @@ export class ReadyEvent extends Event {
       }
     };
 
+    var corsOptions = {
+      origin: function (origin:any, callback:any) {
+        if (origin !== undefined || origin == 'https://www.team-occitanie.fr') {
+          callback(null, true);
+        } else {
+          callback('Accès non autorisé');
+        }
+      }
+    }
+
     app.use(allowLocalhostOnly);
     app.use(bodyParser.json());
 
-    app.get('/post-article/query', (req, res) => 
+    app.get('/post-article/query', cors(corsOptions), (req, res) => 
     {
 
       
