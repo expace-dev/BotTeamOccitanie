@@ -82,6 +82,7 @@ export class ReadyEvent extends Event {
       // @ts-expect-error
       const newDescription = description.replaceAll('<br />', '\n');
       
+      console.log(url);
       const embed = {
         color: 0x82a800,
         title: title,
