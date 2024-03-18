@@ -4,7 +4,7 @@ import {db} from "../../utils/databaseConnect"
 import config from "../../config";
 import express from "express";
 import cors from "cors";
-import { Guild, TextChannel } from "discord.js";
+import { Guild, MessageResolvable, TextChannel } from "discord.js";
 
 export class ReadyEvent extends Event {
   constructor(client: ShewenyClient) {
@@ -209,8 +209,9 @@ export class ReadyEvent extends Event {
     app.get('/edit-tache/query', cors(corsOptions), (req, res) => 
     {
 
-      const messageId = req.query.id;
+      const messageId = req.query.id as MessageResolvable;
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const message = channel.messages.fetch(messageId);
 
       const embed = {
         color: 0x82a800,
@@ -226,8 +227,7 @@ export class ReadyEvent extends Event {
         timestamp: new Date().toISOString(),
       };
 
-      // @ts-expect-error
-      channel.messages.edit(messageId, { embeds: [embed] })
+      console.log(message);
 
       return res.status(200).json(
         {
