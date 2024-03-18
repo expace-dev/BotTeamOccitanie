@@ -60,7 +60,7 @@ export class ReadyEvent extends Event {
     
     var corsOptions = {
       origin: function (origin:any, callback:any) {
-        if (origin != undefined || origin == 'http://127.0.0.1') {
+        if (origin != undefined || origin == 'https://www.team-occitanie.fr') {
           callback(null, true);
         } else {
           callback('Accès non autorisé');
