@@ -276,11 +276,12 @@ export class ReadyEvent extends Event {
       const messageId = req.query.id as MessageResolvable;
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
-      
+      const mydate = req.query.date;
+      const datefr = mydate?.toLocaleString();
 
       const embed = {
         color: 0x82a800,
-        title: `Evenement du <t:${req.query.date}:F>`,
+        title: `Evenement du <t:${datefr}:F>`,
         image: {
           url: req.query.image,
         },
