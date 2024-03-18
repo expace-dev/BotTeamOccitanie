@@ -211,8 +211,9 @@ export class ReadyEvent extends Event {
 
       const messageId = req.query.id as MessageResolvable;
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
-      const message = channel.messages.fetch(messageId).then(console.log).catch(console.error);
-/*
+
+      
+
       const embed = {
         color: 0x82a800,
         title: `Tache a effectuer sur ${req.query.map}`,
@@ -226,8 +227,9 @@ export class ReadyEvent extends Event {
         },
         timestamp: new Date().toISOString(),
       };
-*/
-      console.log(message);
+      // @ts-expect-error
+      channel.messages.fetch(messageId).then(msg => msg.edit({ embeds: [embed] }))
+      //console.log(message);
 
       return res.status(200).json(
         {
