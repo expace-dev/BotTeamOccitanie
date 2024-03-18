@@ -275,9 +275,9 @@ export class ReadyEvent extends Event {
 
       const messageId = req.query.id as MessageResolvable;
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+
       const mydate = req.query.date;
-      // @ts-expect-error
-      const datefr = mydate.getUTCMilliseconds();
+      const datefr = mydate;
 
       const embed = {
         color: 0x82a800,
