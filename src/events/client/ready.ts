@@ -3,9 +3,9 @@ import type { ShewenyClient } from "sheweny";
 import {db} from "../../utils/databaseConnect"
 import config from "../../config";
 import express from "express";
-//import cors from "cors";
+import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
-import bodyParser from "body-parser";
+//import bodyParser from "body-parser";
 
 export class ReadyEvent extends Event {
   constructor(client: ShewenyClient) {
@@ -57,19 +57,18 @@ export class ReadyEvent extends Event {
     const port = 3000;
 
     
-    const allowLocalhostOnly = (req:any, res:any, next:any) => {
-      const remoteAdress = req.ip;
-
-      if (remoteAdress === '::ffff:127.0.0.1') {
-        next();
+    
+    var corsOptions = {
+      origin: function (origin:any, callback:any) {
+        if (origin != undefined || origin == 'http://127.0.0.1') {
+          callback(null, true);
+        } else {
+          callback('Accès non autorisé');
+        }
       }
-      else {
-        req.status(403).send('Forbidden');
-      }
-    };
-
-    app.use(allowLocalhostOnly);
-    app.use(bodyParser.json());
+    }
+    
+    app.use(cors(corsOptions))
 
     app.get('/post-article/query', (req, res) => 
     {
