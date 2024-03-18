@@ -111,7 +111,7 @@ export class ReadyEvent extends Event {
     app.get('/post-photo/query', cors(corsOptions), (req, res) => 
     {
       
-      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
       const username = req.query.username;
       const avatar = req.query.avatar;
       const image = req.query.image;
@@ -144,7 +144,7 @@ export class ReadyEvent extends Event {
     {
 
       const messageId = req.query.id;
-      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
+      const channel = this.client.channels.cache.get(config.SALON_PHOTOS) as TextChannel;
 
       // @ts-expect-error
       channel.messages.delete(messageId)
@@ -161,7 +161,7 @@ export class ReadyEvent extends Event {
     app.get('/add-tache/query', cors(corsOptions), (req, res) => 
     {
 
-      const channel = this.client.channels.cache.get(config.SALON_TACHES) as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       
 
       const embed = {
@@ -192,7 +192,7 @@ export class ReadyEvent extends Event {
     {
 
       const messageId = req.query.id;
-      const channel = this.client.channels.cache.get(config.SALON_TACHES) as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
       // @ts-expect-error
       channel.messages.delete(messageId)
@@ -209,7 +209,7 @@ export class ReadyEvent extends Event {
     app.get('/add-evenement/query', cors(corsOptions), (req, res) => 
     {
 
-      const channel = this.client.channels.cache.get(config.SALON_EVENEMENTS) as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
       
 
       const embed = {
@@ -240,7 +240,7 @@ export class ReadyEvent extends Event {
     {
 
       const messageId = req.query.id;
-      const channel = this.client.channels.cache.get(config.SALON_EVENEMENTS) as TextChannel;
+      const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
       // @ts-expect-error
       channel.messages.delete(messageId)
