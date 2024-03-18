@@ -5,7 +5,6 @@ import config from "../../config";
 import express from "express";
 import cors from "cors";
 import { Guild, TextChannel } from "discord.js";
-import bodyParser from "body-parser";
 
 export class ReadyEvent extends Event {
   constructor(client: ShewenyClient) {
@@ -57,17 +56,6 @@ export class ReadyEvent extends Event {
     const port = 3000;
 
     
-    // @ts-expect-error
-    const allowLocalhostOnly = (req, res, next) => {
-      const remoteAdress = req.ip;
-
-      if (remoteAdress === '127.0.0.1' || remoteAdress === '::ffff:127.0.0.1' || remoteAdress === '::1') {
-        next();
-      }
-      else {
-        req.status(403).send('Forbidden');
-      }
-    };
 
     var corsOptions = {
       origin: function (origin:any, callback:any) {
@@ -79,8 +67,6 @@ export class ReadyEvent extends Event {
       }
     }
 
-    app.use(allowLocalhostOnly);
-    app.use(bodyParser.json());
 
     app.get('/post-article/query', cors(corsOptions), (req, res) => 
     {
@@ -154,7 +140,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/remove-photo/query', (req, res) => 
+    app.get('/remove-photo/query', cors(corsOptions), (req, res) => 
     {
 
       const messageId = req.query.id;
@@ -172,7 +158,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/add-tache/query', (req, res) => 
+    app.get('/add-tache/query', cors(corsOptions), (req, res) => 
     {
 
       const channel = this.client.channels.cache.get(config.SALON_TACHES) as TextChannel;
@@ -202,7 +188,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/remove-tache/query', (req, res) => 
+    app.get('/remove-tache/query', cors(corsOptions), (req, res) => 
     {
 
       const messageId = req.query.id;
@@ -220,7 +206,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/add-evenement/query', (req, res) => 
+    app.get('/add-evenement/query', cors(corsOptions), (req, res) => 
     {
 
       const channel = this.client.channels.cache.get(config.SALON_EVENEMENTS) as TextChannel;
@@ -250,7 +236,7 @@ export class ReadyEvent extends Event {
 
     });
 
-    app.get('/remove-evenement/query', (req, res) => 
+    app.get('/remove-evenement/query', cors(corsOptions), (req, res) => 
     {
 
       const messageId = req.query.id;
