@@ -276,7 +276,7 @@ export class ReadyEvent extends Event {
       const messageId = req.query.id as MessageResolvable;
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
-      console.log(req.query.test);
+      console.log(req.query.date);
 
       const embed = {
         color: 0x82a800,
