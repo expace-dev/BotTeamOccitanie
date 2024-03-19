@@ -277,7 +277,7 @@ export class ReadyEvent extends Event {
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
       // @ts-expect-error
-      const timestamp = new Date(req.query.date).toISOString()
+      const timestamp = new Date(req.query.date)
 
       console.log(timestamp)
 
