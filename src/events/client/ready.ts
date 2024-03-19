@@ -278,7 +278,7 @@ export class ReadyEvent extends Event {
 
       // @ts-expect-error
       const maDate = new Date(req.query.date);
-      var timestamp = maDate.getTime();
+      var timestamp = maDate.getTime()/1000;
 
       console.log(timestamp)
 
