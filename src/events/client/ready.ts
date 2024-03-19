@@ -244,7 +244,9 @@ export class ReadyEvent extends Event {
     {
 
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
-      
+
+      // @ts-expect-error
+      const timestamp = new Date(req.query.date).getTime()/1000;
 
       const embed = {
         color: 0x82a800,
@@ -278,7 +280,6 @@ export class ReadyEvent extends Event {
 
       // @ts-expect-error
       const timestamp = new Date(req.query.date).getTime()/1000;
-      //var timestamp = maDate.getTime()/1000;
 
       const embed = {
         color: 0x82a800,
@@ -295,7 +296,6 @@ export class ReadyEvent extends Event {
       };
       // @ts-expect-error
       channel.messages.fetch(messageId).then(msg => msg.edit({ embeds: [embed] }))
-      //console.log(message);
 
       return res.status(200).json(
         {
