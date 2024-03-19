@@ -280,7 +280,7 @@ export class ReadyEvent extends Event {
 
       const embed = {
         color: 0x82a800,
-        title: `Evenement du <t:${req.query.date}:F>`,
+        title: `Evenement du ${req.query.date}`,
         image: {
           url: req.query.image,
         },
