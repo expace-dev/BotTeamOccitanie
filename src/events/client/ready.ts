@@ -277,10 +277,8 @@ export class ReadyEvent extends Event {
       const channel = this.client.channels.cache.get('963409987873415219') as TextChannel;
 
       // @ts-expect-error
-      const maDate = new Date(req.query.date);
-      var timestamp = maDate.getTime()/1000;
-
-      console.log(timestamp)
+      const timestamp = new Date(req.query.date).getTime()/1000;
+      //var timestamp = maDate.getTime()/1000;
 
       const embed = {
         color: 0x82a800,
